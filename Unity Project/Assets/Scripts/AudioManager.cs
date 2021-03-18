@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource coin;
     public AudioSource explosion;
     public AudioSource objects;
+    public AudioSource error;
 
     public void soundButton()
     {
@@ -61,6 +62,14 @@ public class AudioManager : MonoBehaviour
         {
             objects.pitch = 1.8f;
             objects.Play();
+        }
+    }
+
+    public void soundError()
+    {
+        if (PlayerPrefs.GetInt("SoundFX", 0) == 1)
+        {
+            error.Play();
         }
     }
 }

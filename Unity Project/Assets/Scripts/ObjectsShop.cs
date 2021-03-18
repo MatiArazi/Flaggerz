@@ -66,8 +66,7 @@ public class ObjectsShop : MonoBehaviour
             }
             else
             {
-                FindObjectOfType<AudioManager>().upgrade.pitch = .5f;
-                FindObjectOfType<AudioManager>().soundUpgrade();
+                FindObjectOfType<AudioManager>().soundError();
             }
         }
     }
