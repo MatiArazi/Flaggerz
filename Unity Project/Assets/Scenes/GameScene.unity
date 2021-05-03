@@ -3540,7 +3540,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461922369}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd6396884b8c14e4cb30f4e9a3ac30a1, type: 3}
   m_Name: 
@@ -3799,7 +3799,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1791975829}
+  m_TargetGraphic: {fileID: 1166091326}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:

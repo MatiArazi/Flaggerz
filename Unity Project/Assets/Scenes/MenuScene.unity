@@ -636,13 +636,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e447004d742a84f3a81ee0a608586872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 1710713824}
-  upgrade: {fileID: 1710713825}
+  button: {fileID: 0}
+  upgrade: {fileID: 0}
   flag: {fileID: 0}
   coin: {fileID: 0}
   explosion: {fileID: 0}
   objects: {fileID: 0}
-  error: {fileID: 1710713826}
+  error: {fileID: 0}
 --- !u!1001 &393460570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2998,7 +2998,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.25
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3531,7 +3531,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461922369}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd6396884b8c14e4cb30f4e9a3ac30a1, type: 3}
   m_Name: 
@@ -4802,7 +4802,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0d626cdbb2a624e55937dc932a14c678, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

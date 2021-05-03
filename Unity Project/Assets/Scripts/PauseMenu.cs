@@ -52,7 +52,6 @@ public class PauseMenu : MonoBehaviour
     public void Menu()
     {
         Time.timeScale = 1;
-        ligth.SetActive(true);
         SceneManager.LoadScene(0);
     }
 }
