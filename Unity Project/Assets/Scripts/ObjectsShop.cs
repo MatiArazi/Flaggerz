@@ -30,6 +30,20 @@ public class ObjectsShop : MonoBehaviour
         shieldButton.text = shieldPrices[PlayerPrefs.GetInt("ShieldLevel", 0)].ToString();
         smallFlagButton.text = smallFlagPrices[PlayerPrefs.GetInt("SmallFlagLevel", 0)].ToString();
 
+        if(bombPrices[PlayerPrefs.GetInt("BombLevel", 0)] > PlayerPrefs.GetInt("Coins", 0))
+        {
+            bombButton.color = new Color32(3,140,140, 90);
+        }
+        if (shieldPrices[PlayerPrefs.GetInt("ShieldLevel", 0)] > PlayerPrefs.GetInt("Coins", 0))
+        {
+            shieldButton.color = new Color32(3, 140, 140, 90);
+        }
+        if (smallFlagPrices[PlayerPrefs.GetInt("SmallFlagLevel", 0)] > PlayerPrefs.GetInt("Coins", 0))
+        {
+            smallFlagButton.color = new Color32(3, 140, 140, 90);
+        }
+
+
         bombInfo.text = "Explosion radius: " + PlayerPrefs.GetFloat("BombRadius", 0).ToString();
         shieldInfo.text = "Shield Time: " + PlayerPrefs.GetFloat("ShieldTime", 5f).ToString() + " seconds";
         smallFlagInfo.text = "Number of small flags: " + PlayerPrefs.GetInt("SmallFlagCounter", 1).ToString(); ;

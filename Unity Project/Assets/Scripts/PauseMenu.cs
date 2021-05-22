@@ -40,6 +40,7 @@ public class PauseMenu : MonoBehaviour
         canvasAnimator.SetBool("Pause", false);
         gamePaused = false;
         timeScale = 1;
+        Time.fixedDeltaTime = 1;
         ligth.SetActive(true);
     }
 
@@ -52,6 +53,7 @@ public class PauseMenu : MonoBehaviour
     public void Menu()
     {
         Time.timeScale = 1;
+        Time.fixedDeltaTime = 1f;
         SceneManager.LoadScene(0);
     }
 }
