@@ -8,10 +8,8 @@ public class PotaAnimation : MonoBehaviour
 
     PotaTween abrir;
     PotaTween cerrar;
-    bool estaAbierto;
     void Start()
     {
-        estaAbierto = gameObject.transform.localScale == Vector3.one;
         abrir = PotaTween.Create(gameObject, 0);
         cerrar = PotaTween.Create(gameObject, 0);
         abrir.Duration = 0.25f;
@@ -20,25 +18,13 @@ public class PotaAnimation : MonoBehaviour
 
     public void Abrir()
     {
-        if (!estaAbierto)
-        {
-            abrir.SetScale(Vector3.zero, Vector3.one);
-            abrir.Play(() =>
-            {
-                estaAbierto = true;
-            });
-        }
+        abrir.SetScale(Vector3.zero, Vector3.one);
+        abrir.Play();
     }
     public void Cerrar()
     {
-        if (estaAbierto)
-        {
-            cerrar.SetScale(Vector3.one, Vector3.zero);
-            cerrar.Play(() =>
-            {
-                estaAbierto = false;
-            });
-        }
+        cerrar.SetScale(Vector3.one, Vector3.zero);
+        cerrar.Play();
     }
     
 }
