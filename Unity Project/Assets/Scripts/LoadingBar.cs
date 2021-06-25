@@ -4,15 +4,16 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using GoogleMobileAds.Api;
 
+
 public class LoadingBar : MonoBehaviour
 {
     private void Start()
     {
         // Initialize the Google Mobile Ads SDK.
-        MobileAds.Initialize(initStatus => {
-            StartCoroutine(LoadingScreen());
-        });
-        
+        MobileAds.Initialize(initStatus => { });
+
+        StartCoroutine(LoadingScreen());
+
     }
     public Slider slider;
 

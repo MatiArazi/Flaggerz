@@ -85,6 +85,8 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
+        playerAnimator.enabled = true;
+        canvaAnimator.enabled = true;
         playerAnimator.SetBool("EndGame", false);
         canvaAnimator.SetBool("End", false);
         isEnded = false;

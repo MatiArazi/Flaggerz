@@ -1,128 +1,103 @@
-﻿using System;
-using GoogleMobileAds.Api;
+﻿using UnityEngine.Events;
 using UnityEngine;
-using UnityEngine.UI;
+using GoogleMobileAds.Api;
 using GoogleMobileAds.Common;
-using UnityEngine.Events;
+using UnityEngine.UI;
+using System;
+using System.Collections.Generic;
 
 public class Rewarded : MonoBehaviour
 {
-    RewardedAd rewardAd;
-    public string iphoneID;
-    public string androidID;
-    public Animator[] animators;
-    public AudioSource music;
-    public Button watchAd;
-    public UnityEvent RewardedFunction;
-    string rewardId;
+    
+    private RewardedAd rewardedAd;
+    public string adUnitIdAndroid = "ca-app-pub-3940256099942544/5224354917";
+    public string adUnitIdIOS = "ca-app-pub-3940256099942544/1712485313";
+    public UnityEvent rewardFunction;
+
+    // Start is called before the first frame update
     void Start()
-    { 
-        RequestRewardedAd();
-    }
-   
-
-    //make button interactable if video ad is ready
-    /*void Update()
     {
-        if (rewardAd.IsLoaded())
-        {
-            watchAd.interactable = true;
-        }
-    }*/
-
-    void RequestRewardedAd()
-    {
-#if UNITY_ANDROID
-        //rewardId = androidID;
-        rewardId = "ca - app - pub - 3940256099942544 / 5224354917";
+        string adUnitId;
+        #if UNITY_ANDROID
+            adUnitId = adUnitIdAndroid;
 #elif UNITY_IPHONE
-        rewardId = iphoneID;
+            adUnitId = adUnitIdIOS;
 #else
-        rewardId = null;
+            adUnitId = "unexpected_platform";
 #endif
-        rewardAd = new RewardedAd(rewardId);
 
-        //call events
-        rewardAd.OnAdLoaded += HandleRewardAdLoaded;
-        rewardAd.OnAdFailedToLoad += HandleRewardAdFailedToLoad;
-        rewardAd.OnAdOpening += HandleRewardAdOpening;
-        rewardAd.OnAdFailedToShow += HandleRewardAdFailedToShow;
-        rewardAd.OnUserEarnedReward += HandleUserEarnedReward;
-        rewardAd.OnAdClosed += HandleRewardAdClosed;
+        this.rewardedAd = new RewardedAd(adUnitId);
 
 
-        //create and ad request
-        if (PlayerPrefs.HasKey("Consent"))
-        {
-            AdRequest request = new AdRequest.Builder().Build();
-            rewardAd.LoadAd(request); //load & show the banner ad
-        }
-        else
-        {
-            AdRequest request = new AdRequest.Builder().AddExtra("npa", "1").Build();
-            rewardAd.LoadAd(request); //load & show the banner ad (non-personalised)
-        }
+        // Called when an ad request has successfully loaded.
+        this.rewardedAd.OnAdLoaded += HandleRewardedAdLoaded;
+        // Called when an ad request failed to load.
+        //this.rewardedAd.OnAdFailedToLoad += HandleRewardedAdFailedToLoad;
+        // Called when an ad is shown.
+        this.rewardedAd.OnAdOpening += HandleRewardedAdOpening;
+        // Called when an ad request failed to show.
+        this.rewardedAd.OnAdFailedToShow += HandleRewardedAdFailedToShow;
+        // Called when the user should be rewarded for interacting with the ad.
+        this.rewardedAd.OnUserEarnedReward += HandleUserEarnedReward;
+        // Called when the ad is closed.
+        this.rewardedAd.OnAdClosed += HandleRewardedAdClosed;
+
+        // Create an empty ad request.
+        AdRequest request = new AdRequest.Builder().Build();
+        // Load the rewarded ad with the request.
+        this.rewardedAd.LoadAd(request);
+
     }
 
-    //attach to a button that plays ad if ready
-    public void ShowRewardedAd()
-    {
-        if (rewardAd.IsLoaded())
-        {
-            rewardAd.Show();
-        }
-    }
 
-    //call events
-    public void HandleRewardAdLoaded(object sender, EventArgs args)
+    public void HandleRewardedAdLoaded(object sender, EventArgs args)
     {
-        //do this when ad loads
-      
-    }
-
-    public void HandleRewardAdFailedToLoad(object sender, AdErrorEventArgs args)
-    {
-        //do this when ad fails to loads
-        Debug.Log("Ad failed to load" + args.Message);
-    }
-
-    public void HandleRewardAdOpening(object sender, EventArgs args)
-    {
-        //do this when ad is opening
+        MonoBehaviour.print("HandleRewardedAdLoaded event received");
         Time.timeScale = 0;
-        for (int i = 0; i < animators.Length; i++)
-        {
-            animators[i].enabled = false;
-        }
-        music.volume = 0;
     }
 
-    public void HandleRewardAdFailedToShow(object sender, AdErrorEventArgs args)
+    public void HandleRewardedAdFailedToLoad(object sender, AdErrorEventArgs args)
     {
-        //do this when ad fails to show
+        MonoBehaviour.print(
+            "HandleRewardedAdFailedToLoad event received with message: "
+                             + args.Message);
+    }
+
+    public void HandleRewardedAdOpening(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleRewardedAdOpening event received");
         
+    }
+
+    public void HandleRewardedAdFailedToShow(object sender, AdErrorEventArgs args)
+    {
+        MonoBehaviour.print(
+            "HandleRewardedAdFailedToShow event received with message: "
+                             + args.Message);
+    }
+
+    public void HandleRewardedAdClosed(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleRewardedAdClosed event received");
     }
 
     public void HandleUserEarnedReward(object sender, EventArgs args)
     {
-        //reward the player here
-        //RevivePlayer();
-        RewardedFunction.Invoke();
+        Time.timeScale = 1;
+        rewardFunction.Invoke();
         
     }
 
-    public void HandleRewardAdClosed(object sender, EventArgs args)
+    public void UserChoseToWatchAd()
     {
-        //do this when ad is closed
-        FindObjectOfType<AudioManager>().soundUpgrade();
-        Time.timeScale = 1;
-        for (int i = 0; i < animators.Length; i++)
+        // Create an empty ad request.
+        AdRequest request = new AdRequest.Builder().Build();
+        // Load the rewarded ad with the request.
+        this.rewardedAd.LoadAd(request);
+        if (this.rewardedAd.IsLoaded())
         {
-            animators[i].enabled = true;
+            this.rewardedAd.Show();
         }
-        Debug.Log("continue playing!!");
-        music.volume = .6f;
-        RequestRewardedAd();
     }
-
+    
 }

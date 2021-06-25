@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <projectSettings>
   <projectSetting name="com.google.external-dependency-managerAnalyticsCookie" value="44b0e01ee026483f87219add98fa9cec" />
   <projectSetting name="com.google.external-dependency-managerAnalyticsEnabled" value="True" />
@@ -15,6 +16,6 @@
   <projectSetting name="GooglePlayServices.PatchPropertiesTemplateGradle" value="True" />
   <projectSetting name="GooglePlayServices.PromptBeforeAutoResolution" value="False" />
   <projectSetting name="GooglePlayServices.UseGradleDaemon" value="False" />
-  <projectSetting name="GooglePlayServices.UseJetifier" value="False" />
+  <projectSetting name="GooglePlayServices.UseJetifier" value="True" />
   <projectSetting name="GooglePlayServices.VerboseLogging" value="False" />
 </projectSettings>
