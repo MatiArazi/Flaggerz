@@ -350,83 +350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398d7e413cb5e4e668783d7321e57ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &88743819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88743814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c615fd9e9deaf4af78b4937547d25eab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tag: 
-  Id: 0
-  PlayOnStart: 0
-  PlayOnEnable: 1
-  Duration: 1
-  Speed: 0
-  Delay: 0
-  Loop: 0
-  LoopsNumber: 0
-  EasingReference: 0
-  EaseEquation: 0
-  Curve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  FlipCurveOnReverse: 1
-  Position:
-    From: {x: 0, y: 0, z: 0}
-    To: {x: 0, y: 0, z: 0}
-    IsLocal: 0
-    IsRelative: 0
-    IgnoreAxis:
-      X: 0
-      Y: 0
-      Z: 0
-  Rotation:
-    From: {x: 0, y: 0, z: 0}
-    To: {x: 0, y: 0, z: 0}
-    IsLocal: 0
-    IsRelative: 0
-    IgnoreAxis:
-      X: 0
-      Y: 0
-      Z: 0
-  Scale:
-    From: {x: 0, y: 0, z: 0}
-    To: {x: 0, y: 0, z: 0}
-    IsLocal: 0
-    IsRelative: 0
-    IgnoreAxis:
-      X: 0
-      Y: 0
-      Z: 0
-  Color:
-    From: {r: 0, g: 0, b: 0, a: 0}
-    To: {r: 0, g: 0, b: 0, a: 0}
-  Alpha:
-    From: 0
-    To: 0
-    Value: 0
-  Float:
-    From: 0
-    To: 0
-    Value: 0
-  _isPlaying: 0
-  _isReversing: 0
-  _isPaused: 0
-  _onStart:
-    m_PersistentCalls:
-      m_Calls: []
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &142040888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,9 +1078,7 @@ GameObject:
   - component: {fileID: 589530368}
   - component: {fileID: 589530370}
   - component: {fileID: 589530369}
-  - component: {fileID: 589530372}
   - component: {fileID: 589530371}
-  - component: {fileID: 589530373}
   m_Layer: 5
   m_Name: ShopPanel
   m_TagString: Untagged
@@ -1236,160 +1157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398d7e413cb5e4e668783d7321e57ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &589530372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589530367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c615fd9e9deaf4af78b4937547d25eab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tag: 
-  Id: 0
-  PlayOnStart: 0
-  PlayOnEnable: 1
-  Duration: 1
-  Speed: 0
-  Delay: 0
-  Loop: 0
-  LoopsNumber: 0
-  EasingReference: 0
-  EaseEquation: 0
-  Curve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  FlipCurveOnReverse: 1
-  Position:
-    From: {x: 0, y: 0, z: 0}
-    To: {x: 0, y: 0, z: 0}
-    IsLocal: 0
-    IsRelative: 0
-    IgnoreAxis:
-      X: 0
-      Y: 0
-      Z: 0
-  Rotation:
-    From: {x: 0, y: 0, z: 0}
-    To: {x: 0, y: 0, z: 0}
-    IsLocal: 0
-    IsRelative: 0
-    IgnoreAxis:
-      X: 0
-      Y: 0
-      Z: 0
-  Scale:
-    From: {x: 0, y: 0, z: 0}
-    To: {x: 0, y: 0, z: 0}
-    IsLocal: 0
-    IsRelative: 0
-    IgnoreAxis:
-      X: 0
-      Y: 0
-      Z: 0
-  Color:
-    From: {r: 0, g: 0, b: 0, a: 0}
-    To: {r: 0, g: 0, b: 0, a: 0}
-  Alpha:
-    From: 0
-    To: 0
-    Value: 0
-  Float:
-    From: 0
-    To: 0
-    Value: 0
-  _isPlaying: 0
-  _isReversing: 0
-  _isPaused: 0
-  _onStart:
-    m_PersistentCalls:
-      m_Calls: []
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &589530373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589530367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c615fd9e9deaf4af78b4937547d25eab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tag: 
-  Id: 0
-  PlayOnStart: 0
-  PlayOnEnable: 0
-  Duration: 1
-  Speed: 0
-  Delay: 0
-  Loop: 0
-  LoopsNumber: 0
-  EasingReference: 0
-  EaseEquation: 0
-  Curve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  FlipCurveOnReverse: 1
-  Position:
-    From: {x: 0, y: 0, z: 0}
-    To: {x: 0, y: 0, z: 0}
-    IsLocal: 0
-    IsRelative: 0
-    IgnoreAxis:
-      X: 0
-      Y: 0
-      Z: 0
-  Rotation:
-    From: {x: 0, y: 0, z: 0}
-    To: {x: 0, y: 0, z: 0}
-    IsLocal: 0
-    IsRelative: 0
-    IgnoreAxis:
-      X: 0
-      Y: 0
-      Z: 0
-  Scale:
-    From: {x: 0, y: 0, z: 0}
-    To: {x: 0, y: 0, z: 0}
-    IsLocal: 0
-    IsRelative: 0
-    IgnoreAxis:
-      X: 0
-      Y: 0
-      Z: 0
-  Color:
-    From: {r: 0, g: 0, b: 0, a: 0}
-    To: {r: 0, g: 0, b: 0, a: 0}
-  Alpha:
-    From: 0
-    To: 0
-    Value: 0
-  Float:
-    From: 0
-    To: 0
-    Value: 0
-  _isPlaying: 0
-  _isReversing: 0
-  _isPaused: 0
-  _onStart:
-    m_PersistentCalls:
-      m_Calls: []
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &627738747
 GameObject:
   m_ObjectHideFlags: 0
@@ -2078,9 +1845,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 88743818}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Abrir
+      - m_Target: {fileID: 1910150886}
+        m_TargetAssemblyTypeName: LeanAnimation, Assembly-CSharp
+        m_MethodName: Cerrar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2102,9 +1869,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1910150886}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Cerrar
+      - m_Target: {fileID: 88743818}
+        m_TargetAssemblyTypeName: LeanAnimation, Assembly-CSharp
+        m_MethodName: Abrir
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2909,9 +2676,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589530371}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Abrir
+      - m_Target: {fileID: 1910150886}
+        m_TargetAssemblyTypeName: LeanAnimation, Assembly-CSharp
+        m_MethodName: Cerrar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2933,9 +2700,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1910150886}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Cerrar
+      - m_Target: {fileID: 589530371}
+        m_TargetAssemblyTypeName: LeanAnimation, Assembly-CSharp
+        m_MethodName: Abrir
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3719,7 +3486,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 70
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4420,9 +4187,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1910150886}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Abrir
+      - m_Target: {fileID: 589530371}
+        m_TargetAssemblyTypeName: LeanAnimation, Assembly-CSharp
+        m_MethodName: Cerrar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4444,9 +4211,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 589530371}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Cerrar
+      - m_Target: {fileID: 1910150886}
+        m_TargetAssemblyTypeName: LeanAnimation, Assembly-CSharp
+        m_MethodName: Abrir
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6134,7 +5901,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1910150885}
   - component: {fileID: 1910150886}
-  - component: {fileID: 1910150887}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -6180,83 +5946,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398d7e413cb5e4e668783d7321e57ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1910150887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910150884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c615fd9e9deaf4af78b4937547d25eab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tag: 
-  Id: 0
-  PlayOnStart: 0
-  PlayOnEnable: 1
-  Duration: 1
-  Speed: 0
-  Delay: 0
-  Loop: 0
-  LoopsNumber: 0
-  EasingReference: 0
-  EaseEquation: 0
-  Curve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  FlipCurveOnReverse: 1
-  Position:
-    From: {x: 0, y: 0, z: 0}
-    To: {x: 0, y: 0, z: 0}
-    IsLocal: 0
-    IsRelative: 0
-    IgnoreAxis:
-      X: 0
-      Y: 0
-      Z: 0
-  Rotation:
-    From: {x: 0, y: 0, z: 0}
-    To: {x: 0, y: 0, z: 0}
-    IsLocal: 0
-    IsRelative: 0
-    IgnoreAxis:
-      X: 0
-      Y: 0
-      Z: 0
-  Scale:
-    From: {x: 0, y: 0, z: 0}
-    To: {x: 0, y: 0, z: 0}
-    IsLocal: 0
-    IsRelative: 0
-    IgnoreAxis:
-      X: 0
-      Y: 0
-      Z: 0
-  Color:
-    From: {r: 0, g: 0, b: 0, a: 0}
-    To: {r: 0, g: 0, b: 0, a: 0}
-  Alpha:
-    From: 0
-    To: 0
-    Value: 0
-  Float:
-    From: 0
-    To: 0
-    Value: 0
-  _isPlaying: 0
-  _isReversing: 0
-  _isPaused: 0
-  _onStart:
-    m_PersistentCalls:
-      m_Calls: []
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1926579716
 GameObject:
   m_ObjectHideFlags: 0
@@ -6894,6 +6583,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: Abrir
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781313113798922944, guid: 574948bdf2b1e4024b05baeff649e8c2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LeanAnimation, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781313113798922944, guid: 574948bdf2b1e4024b05baeff649e8c2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: LeanAnimation, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2781313113798922944, guid: 574948bdf2b1e4024b05baeff649e8c2,
         type: 3}

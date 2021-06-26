@@ -53,7 +53,7 @@ public class Rewarded : MonoBehaviour
     public void HandleRewardedAdLoaded(object sender, EventArgs args)
     {
         MonoBehaviour.print("HandleRewardedAdLoaded event received");
-        Time.timeScale = 0;
+        
     }
 
     public void HandleRewardedAdFailedToLoad(object sender, AdErrorEventArgs args)
@@ -66,7 +66,8 @@ public class Rewarded : MonoBehaviour
     public void HandleRewardedAdOpening(object sender, EventArgs args)
     {
         MonoBehaviour.print("HandleRewardedAdOpening event received");
-        
+        Time.timeScale = 0;
+
     }
 
     public void HandleRewardedAdFailedToShow(object sender, AdErrorEventArgs args)
