@@ -30,7 +30,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4590357579006568195}
   explosion: {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1, type: 3}
-  speed: 2
   endGame: 0
 --- !u!1001 &4574651983481994927
 PrefabInstance:
@@ -117,7 +116,7 @@ PrefabInstance:
     - target: {fileID: -7198650702945622230, guid: 8b86a53c21ad2463a94cdd3f030d8b26,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -49229977694123636, guid: 8b86a53c21ad2463a94cdd3f030d8b26,
         type: 3}

@@ -332,19 +332,13 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22391215}
   m_CullTransparentMesh: 0
---- !u!1 &88743814 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7834982479741009846, guid: 574948bdf2b1e4024b05baeff649e8c2,
+--- !u!114 &88743818 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2956334602896445747, guid: 574948bdf2b1e4024b05baeff649e8c2,
     type: 3}
   m_PrefabInstance: {fileID: 7834982479032335761}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &88743818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88743814}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 398d7e413cb5e4e668783d7321e57ed2, type: 3}
@@ -3486,7 +3480,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

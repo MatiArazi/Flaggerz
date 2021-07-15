@@ -6,37 +6,26 @@ public class Flag : MonoBehaviour
 {
     public Rigidbody rb;
     public GameObject explosion;
-    public float speed = 2f;
     public bool endGame = false;
-    float delay = 1f;
     
-    // Start is called before the first frame update
-    void Start()
+ 
+    IEnumerator ForceAndExplode()
     {
-        transform.tag = "Untagged";
-        rb.constraints = RigidbodyConstraints.FreezeAll;
+        // suspend execution for 5 seconds
+        rb.constraints = RigidbodyConstraints.None;
+        rb.AddExplosionForce(300, transform.position, 1);
+        //FindObjectOfType<AudioManager>().soundExplosion();
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision col)
     {
-        delay -=  Time.deltaTime;
-        if(delay <= 0)
+        if(col.gameObject.tag == "Player")
         {
-            transform.tag = "Flag";
-        }
-        
-        
-    }
-
-    private void OnTriggerEnter(Collider col)
-    {
-        if(col.tag == "Player" && transform.tag == "Flag")
-        {
-            rb.constraints = RigidbodyConstraints.None;
-            Instantiate(explosion, col.transform.position, col.transform.rotation);
-            rb.AddExplosionForce(300, transform.position, 1);
-            FindObjectOfType<AudioManager>().soundExplosion();
+            Debug.Log("Game over");
+            FindObjectOfType<GameManager2>().End();
+            /*
             if (FindObjectOfType<ShieldText>().shield)
             {
                 FindObjectOfType<ShieldText>().shield = false;
@@ -44,9 +33,11 @@ public class Flag : MonoBehaviour
             {
                 FindObjectOfType<GameManager>().EndGame();
                // col.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                col.GetComponent<Rigidbody>().AddExplosionForce(300, transform.position, 1);
+                //col.GetComponent<Rigidbody>().AddExplosionForce(300, transform.position, 1);
             }
-            
+            */
+            Instantiate(explosion, col.transform.position, col.transform.rotation);
+            StartCoroutine("ForceAndExplode");
         }
     }
 }
