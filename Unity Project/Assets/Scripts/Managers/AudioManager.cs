@@ -43,7 +43,7 @@ public class AudioManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("SoundFX", 0) == 1)
         {
-            coin.pitch = Random.RandomRange(.8f, 1.2f);
+            coin.pitch = Random.RandomRange(.9f, 1.1f);
             coin.Play();
         }
     }

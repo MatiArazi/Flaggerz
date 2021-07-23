@@ -14,7 +14,7 @@ public class Coin : MonoBehaviour
         {
             Instantiate(particles, transform.position, transform.rotation);
             FindObjectOfType<GameManager2>().Coin();
-            //FindObjectOfType<AudioManager>().soundCoin();
+            FindObjectOfType<AudioManager>().soundCoin();
             Destroy(gameObject);
         } else if (col.tag == "Flag")
         {

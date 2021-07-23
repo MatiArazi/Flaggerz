@@ -25,7 +25,7 @@ public class SmallFlagObj : MonoBehaviour
             Instantiate(particles, transform.position, transform.rotation);
             transform.gameObject.SetActive(false);
             FindObjectOfType<FlagSpawner>().smallFlagCounter = counter;
-            //FindObjectOfType<AudioManager>().soundObjects();
+            FindObjectOfType<AudioManager>().soundObjects();
         } else if (col.transform.tag == "Flag")
         {
             FindObjectOfType<ObjectSpawner>().SpawnObject(gameObject);

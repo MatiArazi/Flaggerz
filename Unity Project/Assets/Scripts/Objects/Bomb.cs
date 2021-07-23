@@ -34,7 +34,7 @@ public class Bomb : MonoBehaviour
         if (startCountDown && FindObjectOfType<GameManager2>().jugando)
         {
             delay -= Time.deltaTime;
-            transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
+            transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
         }
 
         if(delay <= 0)
@@ -69,6 +69,8 @@ public class Bomb : MonoBehaviour
         Collider[] touchedObjects = Physics.OverlapSphere(transform.position, radius);
         Debug.Log("exlpoding");
         Debug.Log("There are " + touchedObjects.Length + " touched objects");
+        Instantiate(explosion);
+        FindObjectOfType<AudioManager>().soundExplosion();
         foreach (Collider touchedObject in touchedObjects)
         {   
             Transform flagTransform = touchedObject.transform.parent;
@@ -91,7 +93,7 @@ public class Bomb : MonoBehaviour
         if (col.tag == "Player")
         {
             Debug.Log("boom");
-            //FindObjectOfType<AudioManager>().soundObjects();
+            FindObjectOfType<AudioManager>().soundObjects();
             startCountDown = true;
         }
     }

@@ -42,6 +42,7 @@ public class FlagSpawner : MonoBehaviour
             }
             Instantiate(flag, spawnPosition, spawnRotation);
             FindObjectOfType<GameManager2>().Score();
+            FindObjectOfType<AudioManager>().soundFlag();
             waitTime = .5f;
             
             finishInterval = false;

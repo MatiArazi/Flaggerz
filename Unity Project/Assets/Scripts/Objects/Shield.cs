@@ -23,7 +23,7 @@ public class Shield : MonoBehaviour
         {
             Instantiate(particles, transform.position, transform.rotation);
             FindObjectOfType<GameManager2>().timeShield = 5;
-            //FindObjectOfType<AudioManager>().soundObjects();
+            FindObjectOfType<AudioManager>().soundObjects();
             Destroy(gameObject);
         } else if (col.transform.tag == "Flag")
         {

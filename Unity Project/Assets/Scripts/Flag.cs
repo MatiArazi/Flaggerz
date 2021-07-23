@@ -14,7 +14,7 @@ public class Flag : MonoBehaviour
         transform.tag = "Untagged";
         rb.constraints = RigidbodyConstraints.None;
         rb.AddExplosionForce(300, transform.position, 1);
-        //FindObjectOfType<AudioManager>().soundExplosion();
+        FindObjectOfType<AudioManager>().soundExplosion();
         yield return new WaitForSeconds(3);
         Destroy(gameObject);
     }
