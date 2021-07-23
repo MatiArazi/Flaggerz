@@ -6,12 +6,12 @@ public class Flag : MonoBehaviour
 {
     public Rigidbody rb;
     public GameObject explosion;
-    public bool endGame = false;
     
  
     IEnumerator ForceAndExplode()
     {
         // suspend execution for 5 seconds
+        transform.tag = "Untagged";
         rb.constraints = RigidbodyConstraints.None;
         rb.AddExplosionForce(300, transform.position, 1);
         //FindObjectOfType<AudioManager>().soundExplosion();
@@ -19,23 +19,21 @@ public class Flag : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision col)
+    public void Explode(){
+        StartCoroutine("ForceAndExplode");
+    }
+
+    private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.tag == "Player")
+        if(col.tag == "Player" && transform.tag == "Flag")
         {
-            Debug.Log("Game over");
-            FindObjectOfType<GameManager2>().End();
-            /*
-            if (FindObjectOfType<ShieldText>().shield)
+            if(FindObjectOfType<GameManager2>().timeShield > 0){
+                FindObjectOfType<GameManager2>().timeShield = 0;
+            } else
             {
-                FindObjectOfType<ShieldText>().shield = false;
-            }else
-            {
-                FindObjectOfType<GameManager>().EndGame();
-               // col.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                //col.GetComponent<Rigidbody>().AddExplosionForce(300, transform.position, 1);
+                Debug.Log("Game over");
+                FindObjectOfType<GameManager2>().End();
             }
-            */
             Instantiate(explosion, col.transform.position, col.transform.rotation);
             StartCoroutine("ForceAndExplode");
         }

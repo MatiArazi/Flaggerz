@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Bomb : MonoBehaviour
@@ -29,7 +31,7 @@ public class Bomb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startCountDown)
+        if (startCountDown && FindObjectOfType<GameManager2>().jugando)
         {
             delay -= Time.deltaTime;
             transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
@@ -37,43 +39,50 @@ public class Bomb : MonoBehaviour
 
         if(delay <= 0)
         {
-            Explode(transform);
+            startCountDown = false;
+            Explode();
         }
     }
 
+    /*
     public void Explode(Transform transformExplosion)
     {
         Instantiate(explosion, transformExplosion.position, transformExplosion.rotation);
-
-        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+        GameObject.Find("CollisionSphere").GetComponent<SphereCollider>().enabled = true;
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 6000);
         foreach(Collider nearbyObj in colliders)
         {
-            Rigidbody rb = nearbyObj.GetComponent<Rigidbody>();
-            if(rb != null)
+            Debug.Log("Viene la bombaa");
+            //nearbyObj.GetComponent<Flag>().Explode();
+            if(nearbyObj.tag == "Flag")
+            {   
+                Debug.Log("Viene la bombaa, voy a explotar(soy flag)");
+                nearbyObj.GetComponent<Flag>().Explode();
+            }
+        }
+        Destroy(gameObject);
+    }*/
+
+    public void Explode()
+    {
+        GameObject explosionObject = Instantiate(explosion, transform.position, transform.rotation);
+        Collider[] touchedObjects = Physics.OverlapSphere(transform.position, radius);
+        Debug.Log("exlpoding");
+        Debug.Log("There are " + touchedObjects.Length + " touched objects");
+        foreach (Collider touchedObject in touchedObjects)
+        {   
+            Transform flagTransform = touchedObject.transform.parent;
+            if(flagTransform != null)
             {
-                if(rb.gameObject.tag == "Flag")
+                GameObject flag = flagTransform.gameObject;
+                if(flag.tag == "Flag")
                 {
-                    rb.constraints = RigidbodyConstraints.None;
-                    rb.useGravity = true;
-                    rb.AddExplosionForce(force, transform.position, radius);
-                    FindObjectOfType<AudioManager>().soundExplosion();
+                    Debug.Log("Flag ka boooom");
+                    flag.GetComponent<Flag>().Explode();
                 }
             }
         }
-
-        new WaitForSeconds(2);
-        foreach (Collider nearbyObj in colliders)
-        {
-            Rigidbody rb = nearbyObj.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                if (rb.gameObject.tag == "Flag")
-                {
-                    Destroy(nearbyObj);
-                }
-            }
-        }
-
+        //Destroy(explosionObject);
         Destroy(gameObject);
     }
 
@@ -82,7 +91,7 @@ public class Bomb : MonoBehaviour
         if (col.tag == "Player")
         {
             Debug.Log("boom");
-            FindObjectOfType<AudioManager>().soundObjects();
+            //FindObjectOfType<AudioManager>().soundObjects();
             startCountDown = true;
         }
     }

@@ -18,15 +18,18 @@ public class SmallFlagObj : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider col)
+    private void OnCollisionEnter(Collision col)
     {
-        if (col.tag == "Player")
+        if (col.transform.tag == "Player")
         {
             Instantiate(particles, transform.position, transform.rotation);
             transform.gameObject.SetActive(false);
-            Spawner.changeScale = true;
-            Spawner.smallFlagCounter = counter;
-            FindObjectOfType<AudioManager>().soundObjects();
+            FindObjectOfType<FlagSpawner>().smallFlagCounter = counter;
+            //FindObjectOfType<AudioManager>().soundObjects();
+        } else if (col.transform.tag == "Flag")
+        {
+            FindObjectOfType<ObjectSpawner>().SpawnObject(gameObject);
+            Destroy(gameObject);
         }
     }
 }

@@ -17,14 +17,17 @@ public class Shield : MonoBehaviour
         PlayerPrefs.SetFloat("ShieldTime", time);
     }
 
-    private void OnTriggerEnter(Collider col)
+    private void OnCollisionEnter(Collision col)
     {
-        if (col.CompareTag("Player"))
+        if (col.transform.CompareTag("Player"))
         {
             Instantiate(particles, transform.position, transform.rotation);
-            FindObjectOfType<ShieldText>().shielded = true;
-            FindObjectOfType<ShieldText>().shieldTime = time;
-            FindObjectOfType<AudioManager>().soundObjects();
+            FindObjectOfType<GameManager2>().timeShield = 5;
+            //FindObjectOfType<AudioManager>().soundObjects();
+            Destroy(gameObject);
+        } else if (col.transform.tag == "Flag")
+        {
+            FindObjectOfType<ObjectSpawner>().SpawnObject(gameObject);
             Destroy(gameObject);
         }
     }
