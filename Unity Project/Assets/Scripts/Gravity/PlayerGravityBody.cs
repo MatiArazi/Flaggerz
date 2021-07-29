@@ -26,7 +26,7 @@ public class PlayerGravityBody : MonoBehaviour {
     Planet planet;
 	Rigidbody rigidbody;
 	
-	void Awake () {
+	void Awake() {
 		planet = GameObject.FindGameObjectWithTag("Planet").GetComponent<Planet>();
 		rigidbody = GetComponent<Rigidbody> ();
 
@@ -37,6 +37,6 @@ public class PlayerGravityBody : MonoBehaviour {
 	
 	void FixedUpdate () {
 		// Allow this body to be influenced by planet's gravity
-		planet.Attract(rigidbody);
+		planet.Attractt(transform);
 	}
 }

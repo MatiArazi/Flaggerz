@@ -16,7 +16,6 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        Time.fixedDeltaTime = 1;
         highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
        // SceneManager.LoadSceneAsync("GameScene").allowSceneActivation = false;
     }
@@ -44,7 +43,8 @@ public class MenuManager : MonoBehaviour
     public void Play()
     {
         //SceneManager.LoadSceneAsync("GameScene").allowSceneActivation = true;
-        SceneManager.LoadScene("GameScene");
+        PlayerPrefs.SetInt("SceneName", 2);
+        SceneManager.LoadScene("LoadingScene");
     }
 
     

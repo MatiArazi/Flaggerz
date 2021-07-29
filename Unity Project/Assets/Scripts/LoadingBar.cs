@@ -7,9 +7,11 @@ using GoogleMobileAds.Api;
 
 public class LoadingBar : MonoBehaviour
 {
+    int sceneName;
     private void Start()
     {
         // Initialize the Google Mobile Ads SDK.
+        sceneName = PlayerPrefs.GetInt("SceneName", 1);
         MobileAds.Initialize(initStatus => { });
 
         StartCoroutine(LoadingScreen());
@@ -21,7 +23,7 @@ public class LoadingBar : MonoBehaviour
 
     IEnumerator LoadingScreen()
     {
-        async = SceneManager.LoadSceneAsync(1);
+        async = SceneManager.LoadSceneAsync(sceneName);
         async.allowSceneActivation = false;
 
         while(async.isDone == false)

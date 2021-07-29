@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 6fb99354352dc46ae9d1fe5a4cc67134,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -226,9 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441977c7e07684f22bc5736ad6d21bdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  componentsToDisable:
-  - {fileID: 0}
-  - {fileID: 0}
+  componentsToDisable: []
   scoreText: {fileID: 1718365013}
   highScoreText: {fileID: 1500837484}
   coinText: {fileID: 228971435}
@@ -238,7 +237,7 @@ MonoBehaviour:
     serializedVersion: 2
     key0: {r: 0.04705883, g: 0.10980393, b: 0.21568629, a: 1}
     key1: {r: 0.6130833, g: 0.1484959, b: 0.6698113, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
+    key2: {r: 0.6482123, g: 0.92156863, b: 0.47058824, a: 1}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
@@ -246,7 +245,7 @@ MonoBehaviour:
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
     ctime1: 65535
-    ctime2: 0
+    ctime2: 61487
     ctime3: 0
     ctime4: 0
     ctime5: 0
@@ -254,7 +253,7 @@ MonoBehaviour:
     ctime7: 0
     atime0: 0
     atime1: 65535
-    atime2: 0
+    atime2: 62258
     atime3: 0
     atime4: 0
     atime5: 0
@@ -263,7 +262,39 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  shieldGradient:
+    serializedVersion: 2
+    key0: {r: 0.8901961, g: 0.28235295, b: 0.21176471, a: 1}
+    key1: {r: 0.92156863, g: 0.85882354, b: 0.47058824, a: 1}
+    key2: {r: 0.6482123, g: 0.92156863, b: 0.47058824, a: 1}
+    key3: {r: 0.6482123, g: 0.92156863, b: 0.47058824, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 3277
+    ctime1: 32768
+    ctime2: 58982
+    ctime3: 61487
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 3470
+    atime1: 26407
+    atime2: 62258
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 3
+  song: {fileID: 1907807237}
+  shieldMat: {fileID: 2100000, guid: c96a750653881433d85494073f668714, type: 2}
   jugando: 1
+  timerShield: 0
   timeShield: 0
 --- !u!114 &299293369
 MonoBehaviour:
@@ -1055,7 +1086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420794973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 40.6, z: 0}
+  m_LocalPosition: {x: 0, y: 43.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 543450653029285920}
@@ -1087,11 +1118,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.5
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 114
   m_CollisionDetection: 0
 --- !u!65 &1420794977
 BoxCollider:
@@ -1121,11 +1152,12 @@ MonoBehaviour:
   mouseSensitivityX: 1
   mouseSensitivityY: 1
   moveSpeed: 15
+  fasterSpeed: 0.001
   rotateSpeed: 90
   jumpForce: 220
   groundedMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   canMove: 0
 --- !u!1 &1437383320
 GameObject:
@@ -1315,6 +1347,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1596485374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8781056211205309666, guid: 574948bdf2b1e4024b05baeff649e8c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1954017307400413751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1718365012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1495,6 +1539,7 @@ GameObject:
   - component: {fileID: 1907807239}
   - component: {fileID: 1907807238}
   - component: {fileID: 1907807237}
+  - component: {fileID: 1907807244}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1674,7 +1719,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cc69b88f324cc4aa3ac0e1049848bf92, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1770,7 +1815,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d84d6f24164ca412cb7dbbed1ba308df, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1866,7 +1911,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0d626cdbb2a624e55937dc932a14c678, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1962,7 +2007,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 11537d0f87e96477a877838e6bdebbae, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2058,7 +2103,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5d42219710a5244e9a7b2407b943bf6f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2154,8 +2199,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 910e0d52b7b0f4c5c8cecddd4fc6cd6b, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2239,6 +2284,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1907807244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907807233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 398d7e413cb5e4e668783d7321e57ed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1922599358 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7051526866435001759, guid: 99fdd13d503314d99aeb253520655677,
@@ -4445,12 +4502,12 @@ PrefabInstance:
     - target: {fileID: 1823415533180857503, guid: 574948bdf2b1e4024b05baeff649e8c2,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1823415533180857503, guid: 574948bdf2b1e4024b05baeff649e8c2,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1823415533180857503, guid: 574948bdf2b1e4024b05baeff649e8c2,
         type: 3}
@@ -4466,7 +4523,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 299293370}
     - target: {fileID: 1823415533180857503, guid: 574948bdf2b1e4024b05baeff649e8c2,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -4614,13 +4671,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5123010667500731506, guid: 574948bdf2b1e4024b05baeff649e8c2,
         type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      propertyPath: graphic
+      value: 
+      objectReference: {fileID: 1596485374}
+    - target: {fileID: 5123010667500731506, guid: 574948bdf2b1e4024b05baeff649e8c2,
+        type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5123010667500731506, guid: 574948bdf2b1e4024b05baeff649e8c2,
         type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5123010667500731506, guid: 574948bdf2b1e4024b05baeff649e8c2,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5123010667500731506, guid: 574948bdf2b1e4024b05baeff649e8c2,
+        type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5123010667500731506, guid: 574948bdf2b1e4024b05baeff649e8c2,
         type: 3}
@@ -4641,7 +4713,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 299293370}
     - target: {fileID: 5123010667500731506, guid: 574948bdf2b1e4024b05baeff649e8c2,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -5586,7 +5658,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -5604,7 +5676,7 @@ GameObject:
   - component: {fileID: 4188383561261886830}
   - component: {fileID: 4188383561261886818}
   - component: {fileID: 4188383561261886829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Planet
   m_TagString: Planet
   m_Icon: {fileID: 0}

@@ -1420,7 +1420,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5199804566951953932, guid: 63dde468c60fe4863b69d08d49dfcf01, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 63dde468c60fe4863b69d08d49dfcf01, type: 3}
 --- !u!1 &737518499 stripped
 GameObject:
@@ -3480,7 +3481,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 70
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

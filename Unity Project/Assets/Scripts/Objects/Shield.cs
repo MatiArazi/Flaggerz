@@ -22,10 +22,11 @@ public class Shield : MonoBehaviour
         if (col.transform.CompareTag("Player"))
         {
             Instantiate(particles, transform.position, transform.rotation);
-            FindObjectOfType<GameManager2>().timeShield = 5;
+            FindObjectOfType<GameManager2>().timeShield = time;
+            FindObjectOfType<GameManager2>().timerShield = time;
             FindObjectOfType<AudioManager>().soundObjects();
             Destroy(gameObject);
-        } else if (col.transform.tag == "Flag")
+        } else if (col.transform.tag == "Flag") 
         {
             FindObjectOfType<ObjectSpawner>().SpawnObject(gameObject);
             Destroy(gameObject);

@@ -16,7 +16,7 @@ public class FlagSpawner : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        realScale = flag.transform.localScale;
+        realScale = Vector3.one * 1.5f;// flag.transform.localScale;
     }
     void Update()
     {
@@ -34,7 +34,7 @@ public class FlagSpawner : MonoBehaviour
         if(waitTime <= 0.0f)
         {   
             if(smallFlagCounter > 0){
-                flag.transform.localScale = realScale / 2;
+                flag.transform.localScale = realScale / 1.5f;
                 smallFlagCounter--;
             } else 
             {

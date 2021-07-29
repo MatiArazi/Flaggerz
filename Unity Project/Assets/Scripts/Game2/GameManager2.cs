@@ -15,7 +15,12 @@ public class GameManager2 : MonoBehaviour
     public TMP_Text counterText;
     public Image replayImage;
     public Gradient camaraGradient;
+    public Gradient shieldGradient;
+    public AudioSource song;
+    public Material shieldMat;
     public bool jugando = true;
+    bool terminado = false;
+    public float timerShield = 5f;
     public float timeShield = 5f;
     float replayCounter = 5f;
     int score = 0;
@@ -26,19 +31,31 @@ public class GameManager2 : MonoBehaviour
         coins = PlayerPrefs.GetInt("Coins", 0);
         coinText.text = Convert.ToString(coins);
         highScoreText.text = Convert.ToString(PlayerPrefs.GetInt("HighScore", 0));
+        song.mute = PlayerPrefs.GetInt("Music", 1) != 1;
     }
     private void Update() 
     {
-        if(timeShield > 0)
+        song.mute = PlayerPrefs.GetInt("Music", 1) != 1;
+        if(jugando)
         {
-            timeShield -= Time.deltaTime * Convert.ToInt32(jugando);
-            GameObject.Find("Shield").transform.localScale = Vector3.one * 7.5f;
-        }else 
-        {
-            GameObject.Find("Shield").transform.localScale = Vector3.zero;
+            var tempCamColor = camaraGradient.Evaluate((float)score / 100f);
+            FindObjectOfType<Camera>().backgroundColor = tempCamColor;
+
+            if(timerShield > 0)
+            {   
+                timerShield -= Time.deltaTime;
+                GameObject shield = GameObject.Find("Shield");
+                shield.transform.localScale = Vector3.one * 7.5f;
+                var tempShieldColor = shieldGradient.Evaluate(timerShield / timeShield);
+                tempShieldColor.a = 0.5f;
+                shieldMat.color = tempShieldColor;
+            }else 
+            {
+                GameObject.Find("Shield").transform.localScale = Vector3.zero;
+            }
         }
 
-        if(!jugando)
+        if(terminado)
         {
             replayCounter -= Time.deltaTime;
             replayImage.fillAmount = (5f - replayCounter) / 5f;
@@ -68,6 +85,7 @@ public class GameManager2 : MonoBehaviour
     public void Menu()
     {
         Debug.Log("Menu");
+        PlayerPrefs.SetInt("SceneName", 1);
         SceneManager.LoadScene(0);
     }
 
@@ -78,9 +96,17 @@ public class GameManager2 : MonoBehaviour
             jugando = false;
             EnableComponents(false);
             StopCoroutine("Preparing");
-            GameObject.Find("GamePanel").GetComponent<LeanAnimation>().Cerrar();
-            GameObject.Find("EndPanel").GetComponent<LeanAnimation>().Abrir();
+            StartCoroutine("EndAnimation");
         }
+    }
+
+    IEnumerator EndAnimation()
+    {
+        GameObject.Find("Main Camera").GetComponent<LeanAnimation>().PlayerLoses();
+        yield return new WaitForSeconds(1);
+        GameObject.Find("GamePanel").GetComponent<LeanAnimation>().Cerrar();
+        GameObject.Find("EndPanel").GetComponent<LeanAnimation>().Abrir();
+        terminado = true;
     }
 
     public void ContinuePlaying()
@@ -89,8 +115,14 @@ public class GameManager2 : MonoBehaviour
         {
             GameObject.Find("GamePanel").GetComponent<LeanAnimation>().Abrir();
             GameObject.Find("EndPanel").GetComponent<LeanAnimation>().Cerrar();
+            LeanTween.cancel(GameObject.Find("Main Camera"));
+            GameObject.Find("Main Camera").GetComponent<Transform>().localPosition = new Vector3(0, 60, 5);
+            GameObject.Find("Main Camera").GetComponent<Transform>().localRotation = Quaternion.Euler(90f, 0f, 0f);
             StartCoroutine("Preparing");
             timeShield = 3;
+            timerShield = 3;
+            terminado = false;
+            replayCounter = 5;
         }
     }
 

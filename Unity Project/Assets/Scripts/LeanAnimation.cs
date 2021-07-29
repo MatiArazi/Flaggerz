@@ -21,7 +21,7 @@ public class LeanAnimation : MonoBehaviour
         LeanTween.scale(gameObject, Vector3.zero, tweenTime);
     }
 
-    public void PopSize(float rescale = 1.75f)
+    public void PopSize(float rescale = 2.25f)
     {
         LeanTween.cancel(gameObject);
         transform.localScale = Vector3.one;
@@ -42,6 +42,28 @@ public class LeanAnimation : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
+    }
+
+    public void PlayerLoses()
+    {
+        StartCoroutine("Player");
+    }
+
+    IEnumerator Player(){
+
+        LeanTween.cancel(gameObject);
+        LeanTween.moveLocal(gameObject, new Vector3(0, 21.6f, -10), 0.2f);
+        LeanTween.rotateLocal(gameObject,new Vector3(75, 0, 0), 0.2f);
+        LeanTween.color(gameObject, new Color(17,19,22,1), 1.5f);
+        yield return new WaitForSeconds(0.2f);
+        LeanTween.moveLocal(gameObject, new Vector3(-13, 7, -3), 0.6f);
+        LeanTween.rotateLocal(gameObject,new Vector3(19.2f, 68.6f, 0), 0.6f);
+        yield return new WaitForSeconds(0.6f);
+        LeanTween.moveLocal(gameObject, new Vector3(-3, 5, 18), 0.6f);
+        LeanTween.rotateLocal(gameObject,new Vector3(0, 174, 0), 0.6f);
+        yield return new WaitForSeconds(0.6f);
+        LeanTween.moveLocal(gameObject, new Vector3(2, 4.64f, 17.8f), 4.8f);
+        LeanTween.rotateLocal(gameObject,new Vector3(0, 189, 0), 4.8f);
     }
 
 }

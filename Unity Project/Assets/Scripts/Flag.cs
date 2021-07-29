@@ -8,34 +8,34 @@ public class Flag : MonoBehaviour
     public GameObject explosion;
     
  
-    IEnumerator ForceAndExplode()
+    IEnumerator ForceAndExplode(Transform expPos, float radius)
     {
         // suspend execution for 5 seconds
         transform.tag = "Untagged";
         rb.constraints = RigidbodyConstraints.None;
-        rb.AddExplosionForce(300, transform.position, 1);
+        rb.AddExplosionForce(900, expPos.position, radius);
         FindObjectOfType<AudioManager>().soundExplosion();
         yield return new WaitForSeconds(3);
         Destroy(gameObject);
     }
 
-    public void Explode(){
-        StartCoroutine("ForceAndExplode");
+    public void Explode(Transform expPos, float radius){
+        StartCoroutine(ForceAndExplode(expPos, radius));
     }
 
     private void OnTriggerEnter(Collider col)
     {
         if(col.tag == "Player" && transform.tag == "Flag")
         {
-            if(FindObjectOfType<GameManager2>().timeShield > 0){
-                FindObjectOfType<GameManager2>().timeShield = 0;
+            if(FindObjectOfType<GameManager2>().timerShield > 0){
+                FindObjectOfType<GameManager2>().timerShield = 0;
             } else
             {
                 Debug.Log("Game over");
                 FindObjectOfType<GameManager2>().End();
             }
             Instantiate(explosion, col.transform.position, col.transform.rotation);
-            StartCoroutine("ForceAndExplode");
+            Explode(col.transform, 1f);
         }
     }
 }

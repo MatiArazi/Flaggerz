@@ -65,6 +65,7 @@ public class Bomb : MonoBehaviour
 
     public void Explode()
     {
+        Instantiate(explosion, transform.position, transform.rotation);
         GameObject explosionObject = Instantiate(explosion, transform.position, transform.rotation);
         Collider[] touchedObjects = Physics.OverlapSphere(transform.position, radius);
         Debug.Log("exlpoding");
@@ -80,7 +81,7 @@ public class Bomb : MonoBehaviour
                 if(flag.tag == "Flag")
                 {
                     Debug.Log("Flag ka boooom");
-                    flag.GetComponent<Flag>().Explode();
+                    flag.GetComponent<Flag>().Explode(transform, radius);
                 }
             }
         }

@@ -9,11 +9,12 @@ public class PlayerMovement2 : MonoBehaviour {
 	public float mouseSensitivityX = 1;
 	public float mouseSensitivityY = 1;
 	public float moveSpeed = 16;
+    public float fasterSpeed = 0.001f;
     public float rotateSpeed = 30;
 	public float jumpForce = 220;
 	public LayerMask groundedMask;
     public bool canMove = false;
-	
+	float inputX = 0;
 	// System vars
 	bool grounded;
 	Vector3 moveAmount;
@@ -27,7 +28,7 @@ public class PlayerMovement2 : MonoBehaviour {
 
 	void Update() {
 		// Calculate movement:
-		float inputX = 0;
+		
         int touchCounter = 0;
         if (touchCounter >= Input.touchCount) { inputX = Input.GetAxis("Horizontal"); }
         //loop over every touch found
@@ -47,41 +48,23 @@ public class PlayerMovement2 : MonoBehaviour {
         }
 		
         // Look rotation:
-		transform.Rotate(Vector3.up * inputX * rotateSpeed * Convert.ToInt32(canMove) * Time.deltaTime);
+		
 
         // Moving
 		Vector3 moveDir = new Vector3(0,0, 1).normalized;
-		Vector3 targetMoveAmount = moveDir * moveSpeed * Convert.ToInt32(canMove);
+		Vector3 targetMoveAmount = moveDir * moveSpeed * Convert.ToInt32(canMove);// * Time.deltaTime; //no iria el deltatime
 		moveAmount = Vector3.SmoothDamp(moveAmount,targetMoveAmount,ref smoothMoveVelocity,1f);
-		
-		// Jump
-		if (Input.GetButtonDown("Jump")) {
-			if (grounded) {
-				rigidbody.AddForce(transform.up * jumpForce);
-			}
-		}
-		
-		// Grounded check
-		Ray ray = new Ray(transform.position, -transform.up);
-		RaycastHit hit;
-		
-		if (Physics.Raycast(ray, out hit, 1 + .1f, groundedMask)) {
-			grounded = true;
-            //canMove = true;
-		}
-		else {
-			grounded = false;
-            //canMove = false;
-		}
-		
+
+        if (Time.timeScale != 0 && canMove && FindObjectOfType<GameManager2>().jugando)
+        {
+            moveSpeed += fasterSpeed;
+        }
 	}
 	
 	void FixedUpdate() {
-        if(!canMove){
-            
-        }
 		// Apply movement to rigidbody
-		Vector3 localMove = transform.TransformDirection(moveAmount) * Time.fixedDeltaTime;
+        transform.Rotate(Vector3.up * inputX * rotateSpeed * Convert.ToInt32(canMove) * Time.fixedDeltaTime);
+		Vector3 localMove = transform.TransformDirection(moveAmount)* Time.fixedDeltaTime;
 		rigidbody.MovePosition(rigidbody.position + localMove);
 	}
 
