@@ -44,7 +44,10 @@ public class FlagSpawner : MonoBehaviour
             FindObjectOfType<GameManager2>().Score();
             FindObjectOfType<AudioManager>().soundFlag();
             waitTimer = .25f;
-            intervalTime -= 0.05f;
+            if(intervalTime > 1.5f)
+            {
+                intervalTime -= 0.01f;
+            }
             
             finishInterval = false;
         }
