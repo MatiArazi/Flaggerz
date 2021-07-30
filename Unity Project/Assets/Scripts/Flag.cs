@@ -35,7 +35,7 @@ public class Flag : MonoBehaviour
                 FindObjectOfType<GameManager2>().End();
             }
             Instantiate(explosion, col.transform.position, col.transform.rotation);
-            Explode(col.transform, 1f);
+            Explode(col.transform, 10f);
         }
     }
 }

@@ -70,7 +70,6 @@ public class Bomb : MonoBehaviour
         Collider[] touchedObjects = Physics.OverlapSphere(transform.position, radius);
         Debug.Log("exlpoding");
         Debug.Log("There are " + touchedObjects.Length + " touched objects");
-        Instantiate(explosion);
         FindObjectOfType<AudioManager>().soundExplosion();
         foreach (Collider touchedObject in touchedObjects)
         {   

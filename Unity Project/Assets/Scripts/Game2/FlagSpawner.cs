@@ -8,7 +8,7 @@ public class FlagSpawner : MonoBehaviour
     public GameObject flag;
     public Transform playerTransform;
     public bool canSpawn = true;
-    float intervalTime = 3f, waitTime = .5f;
+    float intervalTimer = 3f, waitTimer = .25f, intervalTime = 3f;
     bool finishInterval = false, allowedToSpawn;
     Vector3 realScale, spawnPosition;
     Quaternion spawnRotation;
@@ -21,17 +21,17 @@ public class FlagSpawner : MonoBehaviour
     void Update()
     {
         allowedToSpawn = canSpawn && FindObjectOfType<GameManager2>().jugando && FindObjectOfType<PlayerMovement2>().canMove;
-        intervalTime -= Time.deltaTime * Convert.ToInt32(allowedToSpawn) * Convert.ToInt32(!finishInterval);
-        waitTime -= Time.deltaTime * Convert.ToInt32(allowedToSpawn) * Convert.ToInt32(finishInterval);
-        if (intervalTime <= 0.0f)
+        intervalTimer -= Time.deltaTime * Convert.ToInt32(allowedToSpawn) * Convert.ToInt32(!finishInterval);
+        waitTimer -= Time.deltaTime * Convert.ToInt32(allowedToSpawn) * Convert.ToInt32(finishInterval);
+        if (intervalTimer <= 0.0f)
         {
             spawnPosition = playerTransform.position;
             spawnRotation = playerTransform.rotation;
             
             finishInterval = true;
-            intervalTime = 3f;
+            intervalTimer = intervalTime;
         }
-        if(waitTime <= 0.0f)
+        if(waitTimer <= 0.0f)
         {   
             if(smallFlagCounter > 0){
                 flag.transform.localScale = realScale / 1.5f;
@@ -43,7 +43,8 @@ public class FlagSpawner : MonoBehaviour
             Instantiate(flag, spawnPosition, spawnRotation);
             FindObjectOfType<GameManager2>().Score();
             FindObjectOfType<AudioManager>().soundFlag();
-            waitTime = .5f;
+            waitTimer = .25f;
+            intervalTime -= 0.05f;
             
             finishInterval = false;
         }

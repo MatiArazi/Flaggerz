@@ -25,6 +25,7 @@ public class GameManager2 : MonoBehaviour
     float replayCounter = 5f;
     int score = 0;
     int coins = 0;
+    Color tempCamColor, tempShieldColor;
 
     private void Start()
     {
@@ -38,15 +39,15 @@ public class GameManager2 : MonoBehaviour
         song.mute = PlayerPrefs.GetInt("Music", 1) != 1;
         if(jugando)
         {
-            var tempCamColor = camaraGradient.Evaluate((float)score / 100f);
+            tempCamColor = camaraGradient.Evaluate((float)score / 100f);
             FindObjectOfType<Camera>().backgroundColor = tempCamColor;
 
             if(timerShield > 0)
             {   
                 timerShield -= Time.deltaTime;
                 GameObject shield = GameObject.Find("Shield");
-                shield.transform.localScale = Vector3.one * 7.5f;
-                var tempShieldColor = shieldGradient.Evaluate(timerShield / timeShield);
+                shield.transform.localScale = new Vector3(7.5f,7.5f,7.5f);
+                tempShieldColor = shieldGradient.Evaluate(timerShield / timeShield);
                 tempShieldColor.a = 0.5f;
                 shieldMat.color = tempShieldColor;
             }else 
@@ -103,6 +104,7 @@ public class GameManager2 : MonoBehaviour
     IEnumerator EndAnimation()
     {
         GameObject.Find("Main Camera").GetComponent<LeanAnimation>().PlayerLoses();
+        FindObjectOfType<Camera>().backgroundColor = new Color(.066f,.074f,.086f);
         yield return new WaitForSeconds(1);
         GameObject.Find("GamePanel").GetComponent<LeanAnimation>().Cerrar();
         GameObject.Find("EndPanel").GetComponent<LeanAnimation>().Abrir();
@@ -118,6 +120,7 @@ public class GameManager2 : MonoBehaviour
             LeanTween.cancel(GameObject.Find("Main Camera"));
             GameObject.Find("Main Camera").GetComponent<Transform>().localPosition = new Vector3(0, 60, 5);
             GameObject.Find("Main Camera").GetComponent<Transform>().localRotation = Quaternion.Euler(90f, 0f, 0f);
+            FindObjectOfType<Camera>().backgroundColor = tempCamColor;
             StartCoroutine("Preparing");
             timeShield = 3;
             timerShield = 3;
