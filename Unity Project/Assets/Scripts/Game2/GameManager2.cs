@@ -10,6 +10,7 @@ public class GameManager2 : MonoBehaviour
 {
     public Behaviour[] componentsToDisable;
     public TMP_Text scoreText;
+    public TMP_Text scoreText2;
     public TMP_Text highScoreText;
     public TMP_Text coinText;
     public TMP_Text counterText;
@@ -122,8 +123,8 @@ public class GameManager2 : MonoBehaviour
             GameObject.Find("Main Camera").GetComponent<Transform>().localRotation = Quaternion.Euler(90f, 0f, 0f);
             FindObjectOfType<Camera>().backgroundColor = tempCamColor;
             StartCoroutine("Preparing");
-            timeShield = 3;
-            timerShield = 3;
+            timeShield = 6;
+            timerShield = 6;
             terminado = false;
             replayCounter = 5;
         }
@@ -162,13 +163,14 @@ public class GameManager2 : MonoBehaviour
     {
         score ++;
         scoreText.text = Convert.ToString(score);
-        GameObject.Find("Score").GetComponent<LeanAnimation>().PopSize();
+        scoreText2.text = Convert.ToString(score);
+        StartCoroutine(GameObject.Find("Score").GetComponent<LeanAnimation>().PopSize());
         if(score > PlayerPrefs.GetInt("HighScore", 0))
         {   
             PlayerPrefs.SetInt("HighScore", score);
             highScoreText.text = score.ToString();
             scoreText.color = new Color(235f/255f, 219f/255f, 120f/255f);
-            GameObject.Find("HighScore").GetComponent<LeanAnimation>().PopSize(2.25f);
+            StartCoroutine(GameObject.Find("HighScore").GetComponent<LeanAnimation>().PopSize());
         }
     }
 
@@ -177,6 +179,6 @@ public class GameManager2 : MonoBehaviour
         coins ++;
         PlayerPrefs.SetInt("Coins", coins);
         coinText.text = Convert.ToString(coins);
-        GameObject.Find("Coins").GetComponent<LeanAnimation>().PopSize();
+        StartCoroutine(GameObject.Find("Coins").GetComponent<LeanAnimation>().PopSize());
     }
 }

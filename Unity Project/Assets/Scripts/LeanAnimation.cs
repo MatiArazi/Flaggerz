@@ -21,12 +21,17 @@ public class LeanAnimation : MonoBehaviour
         LeanTween.scale(gameObject, Vector3.zero, tweenTime);
     }
 
-    public void PopSize(float rescale = 2.25f)
+    public IEnumerator PopSize(float rescale = 1.35f)
     {
         LeanTween.cancel(gameObject);
         transform.localScale = Vector3.one;
-        LeanTween.scale(gameObject, Vector3.one * rescale , .35f);
-        LeanTween.scale(gameObject, Vector3.one, .35f);
+        LeanTween.scale(gameObject, Vector3.one * rescale , .2f);
+        yield return new WaitForSeconds(.20f);
+        LeanTween.scale(gameObject, Vector3.one, .10f);
+        yield return new WaitForSeconds(.10f);
+        LeanTween.scale(gameObject, Vector3.one * rescale / 2 , .05f);
+        yield return new WaitForSeconds(.05f);
+        LeanTween.scale(gameObject, Vector3.one, .10f);
     }
 
     public void StartCounter(TMP_Text counter)
@@ -38,7 +43,7 @@ public class LeanAnimation : MonoBehaviour
         for (int time = 3; time >=0; time--)
         {
             counter.text = Convert.ToString(time);
-            PopSize(1.75f);
+            StartCoroutine(PopSize(1.4f));
             yield return new WaitForSeconds(1f);
         }
 
