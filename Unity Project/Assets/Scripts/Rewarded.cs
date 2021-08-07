@@ -10,8 +10,8 @@ public class Rewarded : MonoBehaviour
 {
     
     private RewardedAd rewardedAd;
-    public string adUnitIdAndroid = "ca-app-pub-3940256099942544/5224354917";
-    public string adUnitIdIOS = "ca-app-pub-3940256099942544/1712485313";
+    public string adUnitIdAndroid; // = "ca-app-pub-3940256099942544/5224354917";
+    public string adUnitIdIOS; // = "ca-app-pub-3940256099942544/1712485313";
     public UnityEvent rewardFunction;
 
     // Start is called before the first frame update

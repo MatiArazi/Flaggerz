@@ -34,6 +34,7 @@ public class GameManager2 : MonoBehaviour
         coinText.text = Convert.ToString(coins);
         highScoreText.text = Convert.ToString(PlayerPrefs.GetInt("HighScore", 0));
         song.mute = PlayerPrefs.GetInt("Music", 1) != 1;
+        PlayerPrefs.SetInt("SceneName", 1);
     }
     private void Update() 
     {

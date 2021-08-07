@@ -4039,7 +4039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adUnitIdAndroid: ca-app-pub-9089726020678295/1028859372
-  adUnitIdIOS: ca-app-pub-2012047101383741/2376831844
+  adUnitIdIOS: ca-app-pub-9089726020678295/1028859372
   rewardFunction:
     m_PersistentCalls:
       m_Calls:
