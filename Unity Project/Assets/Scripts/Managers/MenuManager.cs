@@ -53,6 +53,11 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
     }
 
+    public void Get1000Coins()
+    {
+        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins", 0) + 1000);
+    }
+
     public void GetCoins()
     {
         PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins", 0) + 15);

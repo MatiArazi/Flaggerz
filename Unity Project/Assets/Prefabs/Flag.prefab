@@ -131,6 +131,21 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -4683669308469848369, guid: 8b86a53c21ad2463a94cdd3f030d8b26,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6831d8e0fd93b47298ec14a68d273824, type: 2}
+    - target: {fileID: -4002239815115787907, guid: 8b86a53c21ad2463a94cdd3f030d8b26,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6831d8e0fd93b47298ec14a68d273824, type: 2}
+    - target: {fileID: -808966925217029657, guid: 8b86a53c21ad2463a94cdd3f030d8b26,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -49229977694123636, guid: 8b86a53c21ad2463a94cdd3f030d8b26,
         type: 3}
       propertyPath: m_Convex
