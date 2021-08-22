@@ -26,9 +26,14 @@ public class ObjectsShop : MonoBehaviour
         PlayerPrefs.SetFloat("ShieldTime", shieldTime[PlayerPrefs.GetInt("ShieldLevel", 0)]);
         PlayerPrefs.SetInt("SmallFlagCounter", smallFlagCounter[PlayerPrefs.GetInt("SmallFlagLevel", 0)]);
 
-        bombButton.text = bombPrices[PlayerPrefs.GetInt("BombLevel", 0)].ToString();
-        shieldButton.text = shieldPrices[PlayerPrefs.GetInt("ShieldLevel", 0)].ToString();
-        smallFlagButton.text = smallFlagPrices[PlayerPrefs.GetInt("SmallFlagLevel", 0)].ToString();
+        if(bombPrices[PlayerPrefs.GetInt("BombLevel", 0)] == -1) bombButton.text = "MAX";
+        else bombButton.text = bombPrices[PlayerPrefs.GetInt("BombLevel", 0)].ToString();
+
+        if(shieldPrices[PlayerPrefs.GetInt("ShieldLevel", 0)] == -1) shieldButton.text = "MAX";
+        else shieldButton.text = shieldPrices[PlayerPrefs.GetInt("ShieldLevel", 0)].ToString();
+
+        if(smallFlagPrices[PlayerPrefs.GetInt("SmallFlagLevel", 0)] == -1) smallFlagButton.text = "MAX";
+        else smallFlagButton.text = smallFlagPrices[PlayerPrefs.GetInt("SmallFlagLevel", 0)].ToString();
 
         if(bombPrices[PlayerPrefs.GetInt("BombLevel", 0)] > PlayerPrefs.GetInt("Coins", 0))
         {
@@ -44,9 +49,9 @@ public class ObjectsShop : MonoBehaviour
         }
 
 
-        bombInfo.text = "Explosion radius: " + PlayerPrefs.GetFloat("BombRadius", 0).ToString();
-        shieldInfo.text = "Shield Time: " + PlayerPrefs.GetFloat("ShieldTime", 5f).ToString() + " seconds";
-        smallFlagInfo.text = "Number of small flags: " + PlayerPrefs.GetInt("SmallFlagCounter", 1).ToString(); ;
+        bombInfo.text = "Current explosion radius: " + PlayerPrefs.GetFloat("BombRadius", 0).ToString();
+        shieldInfo.text = "Current shield time: " + PlayerPrefs.GetFloat("ShieldTime", 5f).ToString() + " seconds";
+        smallFlagInfo.text = "Current number of small flags: " + PlayerPrefs.GetInt("SmallFlagCounter", 1).ToString(); ;
     }
 
     public void UpgradeBomb()

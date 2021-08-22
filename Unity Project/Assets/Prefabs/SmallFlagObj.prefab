@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 8555451620606000714, guid: ada6c82389dd04aac9aef0ed86c31003,
     type: 3}
-  smallFlagCounters: 0200000004000000060000000a0000000c0000000f000000
+  smallFlagCounters: 020000000300000004000000060000000a0000000c0000000f000000
 --- !u!135 &4123053846281318479
 SphereCollider:
   m_ObjectHideFlags: 0
