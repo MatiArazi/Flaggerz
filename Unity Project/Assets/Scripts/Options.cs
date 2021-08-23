@@ -17,7 +17,7 @@ public class Options : MonoBehaviour
 
     public void setMusic(bool isOn)
     {
-        if(isOn) PlayerPrefs.SetInt("Music", 1);
+        if (isOn) PlayerPrefs.SetInt("Music", 1);
         else PlayerPrefs.SetInt("Music", 0);
     }
 
@@ -25,5 +25,15 @@ public class Options : MonoBehaviour
     {
         if (isOn) PlayerPrefs.SetInt("SoundFX", 1);
         else PlayerPrefs.SetInt("SoundFX", 0);
+    }
+
+    public void tiktok()
+    {
+        openUrl("https://docs.unity3d.com/ScriptReference/Application.OpenURL.html");
+    }
+
+    void openUrl(string url)
+    {
+        Application.OpenURL(url);
     }
 }
