@@ -27,12 +27,7 @@ public class Options : MonoBehaviour
         else PlayerPrefs.SetInt("SoundFX", 0);
     }
 
-    public void tiktok()
-    {
-        openUrl("https://docs.unity3d.com/ScriptReference/Application.OpenURL.html");
-    }
-
-    void openUrl(string url)
+    public void openUrl(string url)
     {
         Application.OpenURL(url);
     }
