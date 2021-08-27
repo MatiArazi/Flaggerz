@@ -238,8 +238,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: /Users/mati/Documents/GitHub/Flaggerz/user.keystore
-  AndroidKeyaliasName: mati arazi
+  AndroidKeystoreName: /Users/mati/Documents/GitHub/Flaggerz/mati.keystore
+  AndroidKeyaliasName: 
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
   AndroidIsGame: 1

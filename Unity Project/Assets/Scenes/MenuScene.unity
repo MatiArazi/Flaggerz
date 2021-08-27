@@ -1452,27 +1452,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8c564670cc8467385098dd23c653f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShopItemsList:
+  - Imagename: shiba
+    Price: 123
+    IsPurchased: 0
+  - Imagename: argentina
+    Price: 422
+    IsPurchased: 0
+  - Imagename: brazil
+    Price: 3
+    IsPurchased: 0
   ShopScrollView: {fileID: 528821771}
-  images:
-  - {fileID: 21300000, guid: 8c9636677d206402ea0046d526e6f5e9, type: 3}
-  - {fileID: 21300000, guid: 33a1c7bf4dcca4ed2acc31be510fef09, type: 3}
-  - {fileID: 21300000, guid: 9a081336ad17c422d85167cddb59eaea, type: 3}
-  - {fileID: 21300000, guid: 42a9d5f7e16094a50b04f1313123eec3, type: 3}
-  - {fileID: 21300000, guid: a55c1e035721e452a9b8168a2578619b, type: 3}
-  - {fileID: 21300000, guid: d7f073f6086a144cebf88f5f3315bfbf, type: 3}
-  - {fileID: 21300000, guid: 6e1e28a07dec043998631382969a1010, type: 3}
-  - {fileID: 21300000, guid: c6cd4e707e5c84576b1e570386b3724f, type: 3}
-  - {fileID: 21300000, guid: 61801a91de6494120956d88ef0991d9b, type: 3}
-  - {fileID: 21300000, guid: efbebb78160204f37b7a09f80f818fac, type: 3}
-  - {fileID: 21300000, guid: 87ccffb12996d4890b3ec93f8198fcdf, type: 3}
-  - {fileID: 21300000, guid: 5b55fb36cf7f4483f9c8c730f3712e8c, type: 3}
-  - {fileID: 21300000, guid: 76f5f72ab7864485dacee031ed7bfc64, type: 3}
-  - {fileID: 21300000, guid: a1433dbcefd45459e9f791eaf547b496, type: 3}
-  - {fileID: 21300000, guid: 393279c319cd14d3bbb226643de017ca, type: 3}
-  - {fileID: 21300000, guid: 223f5a255152d4acf8e0de5d05bb9d52, type: 3}
-  - {fileID: 21300000, guid: 10bc58f9396524756bb87f765a24de64, type: 3}
-  - {fileID: 21300000, guid: 4a350d9486b3843e29865140e61c389c, type: 3}
-  - {fileID: 21300000, guid: c38e16076029343e6b103a654d40eeb8, type: 3}
 --- !u!1 &589530367
 GameObject:
   m_ObjectHideFlags: 0

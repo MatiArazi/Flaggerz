@@ -9,7 +9,6 @@ public class setFlag : MonoBehaviour
 
     public void setTex() {
         Texture tex = gameObject.GetComponentInChildren<Image>().sprite.texture;
-        Debug.Log(tex);
         flagMat.SetTexture("_MainTex", tex);
     }
 }
