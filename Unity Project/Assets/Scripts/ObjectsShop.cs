@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ObjectsShop : MonoBehaviour
 {
-    public TMP_Text bombButton;
-    public TMP_Text shieldButton;
-    public TMP_Text smallFlagButton;
+    public Button bombButton;
+    public Button shieldButton;
+    public Button smallFlagButton;
     public TMP_Text bombInfo;
     public TMP_Text shieldInfo;
     public TMP_Text smallFlagInfo;
@@ -26,32 +27,46 @@ public class ObjectsShop : MonoBehaviour
         PlayerPrefs.SetFloat("ShieldTime", shieldTime[PlayerPrefs.GetInt("ShieldLevel", 0)]);
         PlayerPrefs.SetInt("SmallFlagCounter", smallFlagCounter[PlayerPrefs.GetInt("SmallFlagLevel", 0)]);
 
-        if(bombPrices[PlayerPrefs.GetInt("BombLevel", 0)] == -1) bombButton.text = "MAX";
-        else bombButton.text = bombPrices[PlayerPrefs.GetInt("BombLevel", 0)].ToString();
-
-        if(shieldPrices[PlayerPrefs.GetInt("ShieldLevel", 0)] == -1) shieldButton.text = "MAX";
-        else shieldButton.text = shieldPrices[PlayerPrefs.GetInt("ShieldLevel", 0)].ToString();
-
-        if(smallFlagPrices[PlayerPrefs.GetInt("SmallFlagLevel", 0)] == -1) smallFlagButton.text = "MAX";
-        else smallFlagButton.text = smallFlagPrices[PlayerPrefs.GetInt("SmallFlagLevel", 0)].ToString();
-
-        if(bombPrices[PlayerPrefs.GetInt("BombLevel", 0)] > PlayerPrefs.GetInt("Coins", 0))
+        if(bombPrices[PlayerPrefs.GetInt("BombLevel", 0)] == -1)
         {
-            bombButton.color = new Color32(3,140,140, 90);
-        }
-        if (shieldPrices[PlayerPrefs.GetInt("ShieldLevel", 0)] > PlayerPrefs.GetInt("Coins", 0))
+            bombButton.GetComponentInChildren<BuyBtn>().OnlyText(bombButton.gameObject,"MAX");
+            bombButton.interactable = false;
+        } 
+            
+        else 
         {
-            shieldButton.color = new Color32(3, 140, 140, 90);
-        }
-        if (smallFlagPrices[PlayerPrefs.GetInt("SmallFlagLevel", 0)] > PlayerPrefs.GetInt("Coins", 0))
-        {
-            smallFlagButton.color = new Color32(3, 140, 140, 90);
+            bombButton.GetComponentInChildren<TMP_Text>().text = bombPrices[PlayerPrefs.GetInt("BombLevel", 0)].ToString();
+            bombButton.interactable = !(bombPrices[PlayerPrefs.GetInt("BombLevel", 0)] > PlayerPrefs.GetInt("Coins", 0));
         }
 
+        if(shieldPrices[PlayerPrefs.GetInt("ShieldLevel", 0)] == -1)
+        {
+            shieldButton.GetComponentInChildren<BuyBtn>().OnlyText(shieldButton.gameObject,"MAX");
+            shieldButton.interactable = false;
+        } 
+        else 
+        {
+            shieldButton.GetComponentInChildren<TMP_Text>().text = shieldPrices[PlayerPrefs.GetInt("ShieldLevel", 0)].ToString();
+            shieldButton.interactable = !(shieldPrices[PlayerPrefs.GetInt("ShieldLevel", 0)] > PlayerPrefs.GetInt("Coins", 0));
+        }
 
-        bombInfo.text = "Current explosion radius: " + PlayerPrefs.GetFloat("BombRadius", 0).ToString();
-        shieldInfo.text = "Current shield time: " + PlayerPrefs.GetFloat("ShieldTime", 5f).ToString() + " seconds";
-        smallFlagInfo.text = "Current number of small flags: " + PlayerPrefs.GetInt("SmallFlagCounter", 1).ToString(); ;
+        if(smallFlagPrices[PlayerPrefs.GetInt("SmallFlagLevel", 0)] == -1) 
+        {
+            smallFlagButton.GetComponentInChildren<BuyBtn>().OnlyText(smallFlagButton.gameObject,"MAX");
+            smallFlagButton.interactable = false;
+        }
+        else 
+        {
+            smallFlagButton.GetComponentInChildren<TMP_Text>().text = smallFlagPrices[PlayerPrefs.GetInt("SmallFlagLevel", 0)].ToString();
+            smallFlagButton.interactable = !(smallFlagPrices[PlayerPrefs.GetInt("SmallFlagLevel", 0)] > PlayerPrefs.GetInt("Coins", 0));
+        }
+        
+        
+        
+
+        bombInfo.GetComponentInChildren<TMP_Text>().text = "Current explosion radius: " + PlayerPrefs.GetFloat("BombRadius", 0).ToString();
+        shieldInfo.GetComponentInChildren<TMP_Text>().text = "Current shield time: " + PlayerPrefs.GetFloat("ShieldTime", 5f).ToString() + " seconds";
+        smallFlagInfo.GetComponentInChildren<TMP_Text>().text = "Current number of small flags: " + PlayerPrefs.GetInt("SmallFlagCounter", 1).ToString(); ;
     }
 
     public void UpgradeBomb()

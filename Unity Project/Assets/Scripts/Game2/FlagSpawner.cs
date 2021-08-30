@@ -8,7 +8,7 @@ public class FlagSpawner : MonoBehaviour
     public GameObject flag;
     public Transform playerTransform;
     public bool canSpawn = true;
-    float intervalTimer = 3f, waitTimer = .25f, intervalTime = 3f;
+    float intervalTimer = 2.5f, waitTimer = .25f, intervalTime = 2.5f;
     bool finishInterval = false, allowedToSpawn;
     Vector3 realScale, spawnPosition;
     Quaternion spawnRotation;
