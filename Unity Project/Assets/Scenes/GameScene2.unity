@@ -5659,8 +5659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413337a592c3046fbb8db7ce1b8ed9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adUnitIdAndroid: ca-app-pub-9089726020678295/8440445534
-  adUnitIdIOS: ca-app-pub-9089726020678295/8440445534
+  adUnitIdAndroid: ca-app-pub-2012047101383741/4654584789
+  adUnitIdIOS: ca-app-pub-2012047101383741/4654584789
   rewardFunction:
     m_PersistentCalls:
       m_Calls:

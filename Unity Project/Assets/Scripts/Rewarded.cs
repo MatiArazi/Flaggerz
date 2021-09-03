@@ -61,6 +61,9 @@ public class Rewarded : MonoBehaviour
         MonoBehaviour.print(
             "HandleRewardedAdFailedToLoad event received with message: "
                              + args.Message);
+        GameObject panel = GameObject.Find("ErrorAd");
+        panel.transform.localScale = Vector3.one;
+        panel.GetComponentInChildren<LeanAnimation>().Abrir();
     }
 
     public void HandleRewardedAdOpening(object sender, EventArgs args)
@@ -73,8 +76,10 @@ public class Rewarded : MonoBehaviour
     public void HandleRewardedAdFailedToShow(object sender, AdErrorEventArgs args)
     {
         MonoBehaviour.print(
-            "HandleRewardedAdFailedToShow event received with message: "
-                             + args.Message);
+            "HandleRewardedAdFailedToShow event received with message: "+ args.Message);
+        GameObject panel = GameObject.Find("ErrorAd");
+        panel.transform.localScale = Vector3.one;
+        panel.GetComponentInChildren<LeanAnimation>().Abrir();
     }
 
     public void HandleRewardedAdClosed(object sender, EventArgs args)

@@ -1,19 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+[Serializable]
+public class ShopItem {
+    public string Imagename;
+    public int Price;
+    public bool IsPurchased = false;
+}
 public class SkinShop : MonoBehaviour
 {
-    [System.Serializable] public class ShopItem
-	{
-		public string Imagename;
-		public int Price;
-		public bool IsPurchased = false;
-	}
-
 	public List<ShopItem> ShopItemsList;
+    public string filename;
     GameObject ItemTemplate;
     GameObject g;
     [SerializeField] Transform ShopScrollView;
@@ -21,6 +22,8 @@ public class SkinShop : MonoBehaviour
 
     void Start()
     {
+        ShopItemsList = FileHandler.ReadListFromJSON<ShopItem> (filename);
+        Debug.Log (FileHandler.GetPath(filename));
         ItemTemplate = ShopScrollView.GetChild(0).gameObject;
 
         for(int i = 0; i<ShopItemsList.Count;i++)
