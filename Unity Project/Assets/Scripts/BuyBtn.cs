@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,4 +19,14 @@ public class BuyBtn : MonoBehaviour
             
         gm.transform.Find("Star").transform.localScale = Vector3.zero;
     }
+}
+
+public static class ButtonExtension
+{
+	public static void AddEventListener<T> (this Button button, T param, Action<T> OnClick)
+	{
+		button.onClick.AddListener (delegate() {
+			OnClick (param);
+		});
+	}
 }

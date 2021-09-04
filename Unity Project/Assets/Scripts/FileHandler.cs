@@ -45,6 +45,7 @@ public static class FileHandler {
 
     public static string GetPath (string filename) {
         return Application.persistentDataPath + "/" + filename;
+       // Path.Combine(Application.persistantDataPath, "saved files", "data.json");
     }
 
     private static void WriteFile (string path, string content) {

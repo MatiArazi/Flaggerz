@@ -1616,7 +1616,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Donate me a coffe /flaggerz
+  m_text: Donate me a cafecito /flaggerz
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9c207c9a259584a5887ad7373701925a, type: 2}
   m_sharedMaterial: {fileID: -8366619048973326945, guid: 9c207c9a259584a5887ad7373701925a,
@@ -2234,7 +2234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7834982479659903521
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2378,7 +2378,7 @@ RectTransform:
   m_GameObject: {fileID: 7834982479741009846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 7834982479659903521}
   - {fileID: 9022717136108246014}
