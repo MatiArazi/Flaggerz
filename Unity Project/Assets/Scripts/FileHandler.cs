@@ -18,8 +18,9 @@ public static class FileHandler {
     }
 
     public static List<T> ReadListFromJSON<T> (string filename) {
-        string content = ReadFile (GetPath (filename));
+         string content = ReadFile (GetPath (filename));
 
+        if(content == "{}") Debug.Log("No content :(");
         if (string.IsNullOrEmpty (content) || content == "{}") {
             return new List<T> ();
         }
@@ -27,7 +28,6 @@ public static class FileHandler {
         List<T> res = JsonHelper.FromJson<T> (content).ToList ();
 
         return res;
-
     }
 
     public static T ReadFromJSON<T> (string filename) {
@@ -44,7 +44,17 @@ public static class FileHandler {
     }
 
     public static string GetPath (string filename) {
-        return Application.persistentDataPath + "/" + filename;
+        //return Application.persistentDataPath + "/" + filename;
+        #if UNITY_EDITOR
+       // return Application.dataPath + "/StreamingAssets/" + filename;
+        return Application.dataPath + "/StreamingAssets/" + filename;
+        #elif UNITY_ANDROID
+        return Path.Combine ("jar:file://" + Application.dataPath + "!assets/", filename);
+
+        //return "jar:file://" + Application.dataPath + "!/assets/StreamingAssets/" + filename;
+        #elif UNITY_IOS
+        return Application.dataPath + "/Raw" + filename;
+        #endif
        // Path.Combine(Application.persistantDataPath, "saved files", "data.json");
     }
 

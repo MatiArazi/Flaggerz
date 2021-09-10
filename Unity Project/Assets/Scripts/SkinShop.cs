@@ -54,7 +54,6 @@ public class SkinShop : MonoBehaviour
                 childButton.GetComponent<BuyBtn>().OnlyText(childButton.gameObject, "USE");
             }
             childButton.interactable = true;
-            Debug.Log(i);
             childButton.AddEventListener (i, ClickBtn);
 
 
