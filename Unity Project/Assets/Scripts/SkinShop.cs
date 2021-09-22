@@ -21,7 +21,7 @@ public class ShopItem
 }
 public class SkinShop : MonoBehaviour
 {
-    public List<ShopItem> ShopItemsList;
+    [SerializeField] List<ShopItem> ShopItemsList;
     public string filename;
     GameObject ItemTemplate;
     GameObject g;
@@ -36,11 +36,12 @@ public class SkinShop : MonoBehaviour
 
         ItemTemplate = ShopScrollView.GetChild(0).gameObject;
 
-        //ShopItemsList.Add (new ShopItem ("argentina", 100,false));
-        FileHandler.SaveToJSON<ShopItem>(ShopItemsList, filename);
+        ///ShopItemsList.Add (new ShopItem ("argentina", 100,false));
+      //FileHandler.SaveListToJSON<ShopItem>(ShopItemsList, filename);
 
         for (int i = 0; i < ShopItemsList.Count; i++)
         {
+            Debug.Log(i);
             g = Instantiate(ItemTemplate, ShopScrollView);
             string path = "Flags/" + ShopItemsList[i].imagename;
             Sprite spr = Resources.Load<Sprite>(path);
@@ -54,7 +55,7 @@ public class SkinShop : MonoBehaviour
                 childButton.GetComponent<BuyBtn>().OnlyText(childButton.gameObject, "USE");
             }
             childButton.interactable = true;
-            childButton.AddEventListener (i, ClickBtn);
+            childButton.AddEventListener(i, ClickBtn);
 
 
         }
@@ -63,34 +64,35 @@ public class SkinShop : MonoBehaviour
 
     void ClickBtn(int index)
     {
-        if(ShopItemsList[index].isPurchased) SetFlag(index);
+        if (ShopItemsList[index].isPurchased) SetFlag(index);
         else BuyItem(index);
     }
     void BuyItem(int index)
     {
         Debug.Log(index);
         int coins = PlayerPrefs.GetInt("Coins", 0);
-        if (coins >= ShopItemsList[index].price) {
+        if (coins >= ShopItemsList[index].price)
+        {
             //Coins
-            PlayerPrefs.SetInt("Coins",coins-ShopItemsList[index].price);
+            PlayerPrefs.SetInt("Coins", coins - ShopItemsList[index].price);
             //Sound
-			FindObjectOfType<AudioManager>().upgrade.pitch = 1f;
+            FindObjectOfType<AudioManager>().upgrade.pitch = 1f;
             FindObjectOfType<AudioManager>().soundUpgrade();
-			//purchase Item
-			ShopItemsList[index].isPurchased = true;
+            //purchase Item
+            ShopItemsList[index].isPurchased = true;
 
-			//change ui text
-			Button btn = ShopScrollView.GetChild(index).GetComponentInChildren<Button>();
+            //change ui text
+            Button btn = ShopScrollView.GetChild(index).GetComponentInChildren<Button>();
             btn.GetComponent<BuyBtn>().OnlyText(btn.gameObject, "USE");
-			btn.interactable = true;
+            btn.interactable = true;
 
             //update json file
-            FileHandler.SaveToJSON<ShopItem>(ShopItemsList, filename);
+            FileHandler.SaveListToJSON<ShopItem>(ShopItemsList, filename);
         }
     }
 
     void SetFlag(int index)
-    {   
+    {
         string path = "Flags/" + ShopItemsList[index].imagename;
         //Sprite spr = Resources.Load<Sprite>(path);
         Texture tex = Resources.Load<Texture>(path);
@@ -98,12 +100,12 @@ public class SkinShop : MonoBehaviour
         flagMat.SetTexture("_MainTex", tex);
     }
 
-    private void Update() 
-    {   
+    private void Update()
+    {
         int coins = PlayerPrefs.GetInt("Coins", 0);
-         for (int i = 0; i < ShopItemsList.Count; i++)
-        {  
-            if(!ShopItemsList[i].isPurchased)
+        for (int i = 0; i < ShopItemsList.Count; i++)
+        {
+            if (!ShopItemsList[i].isPurchased)
             {
                 ShopScrollView.GetChild(i).GetComponentInChildren<Button>().interactable = coins >= ShopItemsList[i].price;
             }
