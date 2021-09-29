@@ -32,12 +32,12 @@ public class SkinShop : MonoBehaviour
     void Start()
     {
         ShopItemsList = FileHandler.ReadListFromJSON<ShopItem>(filename);
-        //Debug.Log (;
-
+        if(ShopItemsList.Count <= 0){
+            string content = Resources.Load<TextAsset>("shop").ToString();
+            FileHandler.WriteFile(FileHandler.GetPath(filename),content);
+            ShopItemsList = FileHandler.ReadListFromJSON<ShopItem> (filename);
+        }
         ItemTemplate = ShopScrollView.GetChild(0).gameObject;
-
-        ///ShopItemsList.Add (new ShopItem ("argentina", 100,false));
-      //FileHandler.SaveListToJSON<ShopItem>(ShopItemsList, filename);
 
         for (int i = 0; i < ShopItemsList.Count; i++)
         {
@@ -87,7 +87,7 @@ public class SkinShop : MonoBehaviour
             btn.interactable = true;
 
             //update json file
-            FileHandler.SaveListToJSON<ShopItem>(ShopItemsList, filename);
+            FileHandler.SaveToJSON<ShopItem>(ShopItemsList, filename);
         }
     }
 
