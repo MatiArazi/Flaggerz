@@ -18,10 +18,16 @@ public class GameManager : MonoBehaviour
     Transform playerDiePos;
     bool shield = false;
     public AudioSource audioSource;
+    public Material flagMat;
 
     private void Start()
     {
         audioSource.mute = PlayerPrefs.GetInt("Music", 1) != 1;
+       
+        string path = PlayerPrefs.GetString("Flag", "Flags/white");
+        Texture tex = Resources.Load<Texture>(path);
+        Debug.Log(tex);
+        flagMat.SetTexture("_MainTex", tex);
     }
 
     private void Update()

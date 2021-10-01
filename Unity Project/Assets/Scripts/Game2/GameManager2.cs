@@ -27,7 +27,7 @@ public class GameManager2 : MonoBehaviour
     int score = 0;
     int coins = 0;
     Color tempCamColor, tempShieldColor;
-
+    public Material flagMat;
     private void Start()
     {
         coins = PlayerPrefs.GetInt("Coins", 0);
@@ -35,6 +35,10 @@ public class GameManager2 : MonoBehaviour
         highScoreText.text = Convert.ToString(PlayerPrefs.GetInt("HighScore", 0));
         song.mute = PlayerPrefs.GetInt("Music", 1) != 1;
         PlayerPrefs.SetInt("SceneName", 1);
+        string path = PlayerPrefs.GetString("Flag", "Flags/white");
+        Texture tex = Resources.Load<Texture>(path);
+        Debug.Log(tex);
+        flagMat.SetTexture("_MainTex", tex);
     }
     private void Update() 
     {

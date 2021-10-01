@@ -793,6 +793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highScore: {fileID: 664736505}
   audioSource: {fileID: 1710713823}
+  flagMat: {fileID: 2100000, guid: 6831d8e0fd93b47298ec14a68d273824, type: 2}
 --- !u!4 &318571670
 Transform:
   m_ObjectHideFlags: 0
@@ -7222,7 +7223,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 128960695, guid: 574948bdf2b1e4024b05baeff649e8c2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 128960697, guid: 574948bdf2b1e4024b05baeff649e8c2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

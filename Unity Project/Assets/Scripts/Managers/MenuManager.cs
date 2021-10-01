@@ -12,12 +12,17 @@ public class MenuManager : MonoBehaviour
     private Vector3 firstTouch, lastTouch;
     public TMP_Text highScore;
     public AudioSource audioSource;
+    public Material flagMat;
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
         highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
        // SceneManager.LoadSceneAsync("GameScene").allowSceneActivation = false;
+        string path = PlayerPrefs.GetString("Flag", "Flags/white");
+        Texture tex = Resources.Load<Texture>(path);
+        Debug.Log(tex);
+        flagMat.SetTexture("_MainTex", tex);
     }
 
     // Update is called once per frame

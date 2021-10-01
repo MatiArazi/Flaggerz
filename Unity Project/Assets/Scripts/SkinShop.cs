@@ -94,6 +94,7 @@ public class SkinShop : MonoBehaviour
     void SetFlag(int index)
     {
         string path = "Flags/" + ShopItemsList[index].imagename;
+        PlayerPrefs.SetString("Flag", path);
         //Sprite spr = Resources.Load<Sprite>(path);
         Texture tex = Resources.Load<Texture>(path);
         Debug.Log(tex);

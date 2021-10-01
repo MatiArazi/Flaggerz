@@ -297,6 +297,7 @@ MonoBehaviour:
   jugando: 1
   timerShield: 0
   timeShield: 0
+  flagMat: {fileID: 2100000, guid: 6831d8e0fd93b47298ec14a68d273824, type: 2}
 --- !u!114 &299293369
 MonoBehaviour:
   m_ObjectHideFlags: 0
